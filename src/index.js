@@ -1,30 +1,32 @@
-const express = require("express"); // importando o módulo express
+//Importa o modulo Express
+const express = require("express");
 
+//Define uma classe para organizar a logica da aplicação
 class AppController {
-  // define uma classe para organizar a lógica da aplicação
-
   constructor() {
-    this.express = express(); // cria uma nova instância dentro da classe
-    this.middlewares(); // chama o método middlewares para configurar os middlewares
-    this.routes(); //chama o método routes para definir as rotas da API
+    //Cria uma nova instancia do Express dentro da classe
+    this.express = express();
+    //Chama o metodo middlewares para configurar os middlewares
+    this.middlewares();
+    //Chama o metodo routes para definir as rotas da Api
+    this.routes();
   }
   middlewares() {
-    this.express.use(express.json()); // permitir que a aplicação receba dados em formato JSON nas requisições
+    //Permitir que a aplicação receba dados em formato JSON nas requisições
+    this.express.use(express.json());
   }
 
+  //Define as rotas da nossa API
   routes() {
-    // define as rotas da nossa API
+    const apiRoutes = require("./routes/apiRoutes");
+    this.express.use("/project-senai/api/v1/", apiRoutes);
 
-    const apiRoutes = require("./routes/apiRoutes"); // chama/linka a a pasta routes e o apiRoutes para o arquivo index.js
-    this.express.use("/controlenumeros/api/par", apiRoutes); // url default do projeto '/project-senai/api/v1'
-
-    this.express.get("/health/", (req, res) => {
-      // define uma rota 'GET' para o caminho '/health/'
-      res.send({ status: "OK" }); // essa rota é usada para verificar se a API está OK
-    });
+    //Define uma rota GET para o caminho health
+    this.express.get("/project-senai/api/v1/health/", (req, res) => {
+      res.send({ status: "OK" });
+    }); //Essa rota é usada para verificar se a Api esta ok
   }
 }
 
-/* exportando a instância de express configurada, 
-para que seja acessada em outros arquivos */
+//Exportando a instancia de Express configurada, para que seja acessada em outros arquivos
 module.exports = new AppController().express;
