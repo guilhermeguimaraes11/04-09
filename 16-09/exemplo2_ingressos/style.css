@@ -6,7 +6,7 @@
 
 body {
   font-family: arial, sans-serif;
-  background-color: azure;
+  background-color: rgb(255, 255, 255);
   color: black;
   /*garante que o body ocupe toda a altura da tela*/
   min-height: 100vh;
@@ -15,25 +15,89 @@ body {
 header {
   background-color: aquamarine;
   padding: 20px;
-  color: blue;
+  color: white;
   text-align: center;
 }
 
-.logo{
-    /*Uso do flexbox para alinhar a logo e o título*/
-    display: flex;
-    /*Alinha verticalmente os itens da div em questao*/ 
-    align-items: center;
-    /*Centraliza os itens horizontalmente*/
-    justify-content: center;
+header .logo {
+  /*Uso do flexbox para alinhar a logo e o título*/
+  display: flex;
+  /*Alinha verticalmente os itens da div em questao*/
+  align-items: center;
+  /*Centraliza os itens horizontalmente*/
+  justify-content: center;
 
-    background-color: rgb(0, 176, 196); 
-    
+  /*background-color: rgb(0, 176, 196);*/
 }
 
-img {
-    max-width: 150px;
-    margin-right: 10px;
+header .logo img {
+  max-width: 150px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
 
+header .logo h1 {
+  margin-bottom: 10px;
+}
 
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+nav ul li {
+    margin:0 15px ;
+}
+
+nav ul li a{
+  color:white;
+  text-decoration: white;
+  font-weight: bold;
+}
+
+nav ul li a:hover{
+  text-decoration: underline;
+}
+
+main{
+  padding: 20px;
+}
+
+main section {
+  margin-bottom: 40px;
+}
+
+#home{
+  background-color: aquamarine;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#home h2{
+  color: #30b6ef
+
+}
+
+.eventos-container{
+  display: flex;
+  gap: 20px;
+}
+
+.eventos-item{
+  background-color: #333;
+  color:white;
+  text-align: center;
+  padding: 20px 30px;
+  width:100%;
+  
+}
+
+footer{
+  background-color: black;
+  padding: 20px;
+  text-align: center;
+  color:white;
 }
